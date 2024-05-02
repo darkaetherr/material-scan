@@ -6,32 +6,15 @@
 
 #ifdef _DEBUG
 namespace p9::memory {
-
-	typedef struct _module {
-		uint64_t base;
-		uint64_t size;
-	}module_t;
-
+	typedef struct _module {uint64_t base;uint64_t size;}module_t;
 	inline HANDLE process_handle = 0;
-
 	bool setup( );
-
 	void read( uintptr_t, void*, size_t );
-
 	template <typename type>
-	inline type read( uintptr_t address ) {
-		type buffer{};
-		read( address, &buffer, sizeof( type ) );
-		return buffer;
-	}
-
+	inline type read( uintptr_t address ) {type buffer{};read( address, &buffer, sizeof( type ) );return buffer;}
 	void write( uintptr_t, void*, size_t );
-
 	template <typename type>
-	inline void write( uintptr_t address, type buffer ) {
-		write( address, &buffer, sizeof( buffer ) );
-	}
-
+	inline void write( uintptr_t address, type buffer ) {write( address, &buffer, sizeof( buffer ) );}
 	module_t get_module( const std::wstring& name );
 }
 #endif // _DEBUG
