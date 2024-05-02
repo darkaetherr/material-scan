@@ -1,0 +1,21 @@
+﻿  dumper.cpp
+C:\0x9 project\rust mat scan\material scan\material scan\usermode.h(6,64): error C2429: language feature 'nested-namespace-definition' requires compiler flag '/std:c++17'
+  (compiling source file 'dumper.cpp')
+  
+C:\0x9 project\rust mat scan\material scan\material scan\usermode.h(8,16): error C7525: inline variables require at least '/std:c++17'
+  (compiling source file 'dumper.cpp')
+  
+C:\0x9 project\rust mat scan\material scan\material scan\dumper.cpp(29,28): error C2079: 'iss' uses undefined class 'std::basic_istringstream<char,std::char_traits<char>,std::allocator<char>>'
+C:\0x9 project\rust mat scan\material scan\material scan\dumper.cpp(29,31): error C2440: 'initializing': cannot convert from 'std::string' to 'int'
+  C:\0x9 project\rust mat scan\material scan\material scan\dumper.cpp(29,31):
+  No user-defined-conversion operator available that can perform this conversion, or the operator cannot be called
+  
+C:\0x9 project\rust mat scan\material scan\material scan\dumper.cpp(30,13): error C2297: '>>': not valid as right operand has type 'std::ios_base &(__cdecl *)(std::ios_base &)'
+C:\0x9 project\rust mat scan\material scan\material scan\dumper.cpp(30,25): warning C4552: '>>': result of expression not used
+  usermode.cpp
+C:\0x9 project\rust mat scan\material scan\material scan\usermode.h(6,64): error C2429: language feature 'nested-namespace-definition' requires compiler flag '/std:c++17'
+  (compiling source file 'usermode.cpp')
+  
+C:\0x9 project\rust mat scan\material scan\material scan\usermode.h(8,16): error C7525: inline variables require at least '/std:c++17'
+  (compiling source file 'usermode.cpp')
+  
