@@ -1,6 +1,4 @@
-for (const auto& entity : Ox9.player_list)
-                {
-                    if (config.Includes.esp.chams.select == 0) 
+ if (config.Includes.esp.chams.select == 0) 
                         continue;
 
                     const auto player_model = entity->playerModel();
@@ -34,4 +32,3 @@ for (const auto& entity : Ox9.player_list)
                         for (std::uint32_t idx{ 0 }; idx < material_list.sz; idx++)
                             driver.write<unsigned int>(material_list.base + (idx * 0x4), chams);
                     }
-                }
