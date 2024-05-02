@@ -10,6 +10,5 @@ Contributors
 the0x9 (UC: DarkEether) - Material Dumper & GetAndAssignInstanciatedMaterial
 extraction.zero (UC: Cjweb) - GetComponentsInChildren
 
-[Screenshot
-[!Screenshot
-https://i.gyazo.com/0915c9781519e39292787e06fa889a45.jpg](https://i.gyazo.com/0915c9781519e39292787e06fa889a45.jpg)](https://i.gyazo.com/0915c9781519e39292787e06fa889a45.jpg)
+Screenshot
+[https://i.gyazo.com/0915c9781519e39292787e06fa889a45.jpg](https://i.gyazo.com/0915c9781519e39292787e06fa889a45.jpg)
