@@ -5,7 +5,7 @@
 #include <TlHelp32.h>
 
 #ifdef _DEBUG
-namespace p9::memory {
+namespace mem::memory {
 	typedef struct _module {uint64_t base;uint64_t size;}module_t;
 	inline HANDLE process_handle = 0;
 	bool setup( );
