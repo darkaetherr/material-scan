@@ -4,7 +4,7 @@
 #ifdef _DEBUG
 #include "usermode.h"
 
-bool p9::memory::setup( ) {
+bool mem::memory::setup( ) {
 	HANDLE ss = CreateToolhelp32Snapshot( TH32CS_SNAPPROCESS, NULL );
 	if ( ss ) 
 	{
@@ -18,17 +18,17 @@ bool p9::memory::setup( ) {
 	return process_handle;
 }
 
-void p9::memory::read( uintptr_t address, void* buffer, size_t size ) {
+void mem::memory::read( uintptr_t address, void* buffer, size_t size ) {
 	if ( process_handle )
 		ReadProcessMemory( process_handle, ( LPCVOID )address, buffer, size, 0 );
 }
 
-void p9::memory::write( uintptr_t address, void* buffer, size_t size ) {
+void mem::memory::write( uintptr_t address, void* buffer, size_t size ) {
 	if ( process_handle )
 		WriteProcessMemory( process_handle, ( LPVOID )address, &buffer, size, NULL );
 }
 
-p9::memory::module_t p9::memory::get_module( const std::wstring& name ) {
+mem::memory::module_t mem::memory::get_module( const std::wstring& name ) {
 	module_t mod = { 0 };
 	HANDLE ss = CreateToolhelp32Snapshot( TH32CS_SNAPMODULE, GetProcessId( process_handle ) );
 	if ( ss ) {
