@@ -18,7 +18,7 @@ This has been gate kept for too long today we are excited to release a material 
 ![Screenshot](https://i.gyazo.com/0915c9781519e39292787e06fa889a45.jpg)
 
 
-##scanner
+## SCANNER
 1. open cheat engine.
 2. attach to rustclient.exe.
 3. hex.
