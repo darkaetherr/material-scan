@@ -16,3 +16,15 @@ This has been gate kept for too long today we are excited to release a material 
 ## Screenshot
 
 ![Screenshot](https://i.gyazo.com/0915c9781519e39292787e06fa889a45.jpg)
+
+
+##scanner
+1. open cheat engine.
+2. attach to rustclient.exe.
+3. hex.
+4. 8 bytes.
+5. search DEADBEEFDEADBEEF.
+6. copy everything.
+7. click copy all selected items to the address list.
+8. go to https://jsonformatter.org/xml-to-json download json.txt this is what the material scanner will scan for.
+   
