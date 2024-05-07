@@ -1,31 +1,64 @@
-void GetComponentsInChildren(uintptr_t GameObject, std::vector<uintptr_t>&renderers, int depth = 0) {
-	if (GameObject == 0) return;
-	auto componentList = threads::Read<uint64_t>(GameObject + 0x30);
-	int componentSize = threads::Read<int>(GameObject + 0x40);
-	for (int j = 0; j < componentSize; ++j) {
-		uintptr_t component = threads::Read<uint64_t>(componentList + (0x10 * j + 0x8));
-		if (component == 0) continue;
-		auto Unk2 = threads::Read<uint64_t>(component + 0x28);
-		if (Unk2 == 0) continue;
-		auto componentNameCjweb = threads::Read<uint64_t>(Unk2 + 0x0);
-		if (componentNameCjweb == 0) continue;
-		auto componentName = threads::Read<uint64_t>(componentNameCjweb + 0x10);
-		if (componentName == 0) continue;
-		std::string Name = threads::ReadASCII(componentName);
-		if (Name == "SkinnedMeshRenderer") {renderers.push_back(component);}
-		if (Name == "Transform") {
-			uintptr_t childList = threads::Read<uint64_t>(component + 0x70);
-			int childSize = threads::Read<int>(component + 0x80);
-			for (int i = 0; i < childSize; ++i) {
-				uint64_t childTransform = threads::Read<uint64_t>(childList + (0x8 * i));
-				if (childTransform == 0) continue;
-				auto childGameObject = threads::Read<uint64_t>(childTransform + 0x30);
-				if (childGameObject == 0) continue;
-				auto childGameObjectName = threads::Read<uint64_t>(childGameObject + 0x60);
-				if (childGameObject == 0) continue;
-				std::string childName = threads::ReadASCII(childGameObjectName);
-				GetComponentsInChildren(childGameObject, renderers, depth + 1);
-			}
-		} 
-	}
+void GetComponentsInChildren(std::uintptr_t game_object, std::vector<std::uintptr_t>& renderers, int depth = 0)
+{
+    const auto component_list = driver.read<std::uint64_t>(game_object + 0x30);
+    if (!component_list)
+        return;
+
+    const auto component_size = driver.read<int>(game_object + 0x40);
+    if (!component_size)
+        return;
+
+    for (int idx{ 0 }; idx < component_size; ++idx)
+    {
+        const auto component = driver.read<std::uint64_t>(component_list + (0x10 * idx + 0x8));
+        if (!component)
+            continue;
+
+        const auto component_ptr = driver.read<std::uint64_t>(component + 0x28);
+        if (!component_ptr)
+            continue;
+
+        const auto component_name_ptr = driver.read<std::uint64_t>(component_ptr + 0x0);
+        if (!component_name_ptr)
+            continue;
+
+        const auto component_name = driver.read<std::uint64_t>(component_name_ptr + 0x10);
+        if (!component_name)
+            continue;
+
+        auto name = driver.read_string(component_name);
+
+        if (name == e("SkinnedMeshRenderer") || name == e("MeshRenderer"))
+            renderers.push_back(component);
+
+        if (name == e("Transform"))
+        {
+            const auto child_list = driver.read<std::uint64_t>(component + 0x70);
+            if (!child_list)
+                continue;
+
+            const auto child_size = driver.read<int>(component + 0x80);
+            if (!child_size)
+                continue;
+
+            for (int i{ 0 }; i < child_size; ++i)
+            {
+                const auto child_transform = driver.read<std::uint64_t>(child_list + (0x8 * i));
+                if (!child_transform)
+                    continue;
+
+                const auto child_game_object = driver.read<std::uint64_t>(child_transform + 0x30);
+                if (!child_game_object)
+                    continue;
+
+                const auto child_object_name = driver.read<std::uint64_t>(child_game_object + 0x60);
+                if (!child_object_name)
+                    continue;
+
+                const auto child_name = driver.read_string(child_object_name);
+
+                GetComponentsInChildren(child_game_object, renderers, depth + 1);
+            }
+        }
+    }
 }
