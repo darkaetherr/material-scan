@@ -16,7 +16,7 @@ This has been gate kept for too long today we are excited to release a material 
 ## Screenshot
 
 ![Screenshot](https://i.gyazo.com/0915c9781519e39292787e06fa889a45.jpg)
-![Screenshot]([https://i.gyazo.com/0915c9781519e39292787e06fa889a45.jpg](https://media.discordapp.net/attachments/1120472593082880072/1237533235341299864/image.png?ex=663bfe23&is=663aaca3&hm=723199d26bd99aa0db5a7325aab46f3af98cf1057b07eb820056a97d3320b62a&=&format=webp&quality=lossless&width=1202&height=676))
+![Screenshot1](https://media.discordapp.net/attachments/1120472593082880072/1237533235341299864/image.png)
 
 ## SCANNER
 1. open cheat engine.
