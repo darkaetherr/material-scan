@@ -16,7 +16,7 @@ This has been gate kept for too long today we are excited to release a material 
 ## Screenshot
 
 ![Screenshot](https://i.gyazo.com/0915c9781519e39292787e06fa889a45.jpg)
-[![Screenshot1](https://gyazo.com/5fd70aef920fb2e3b56e01792cf6670b)](https://gyazo.com/5fd70aef920fb2e3b56e01792cf6670b)
+![Screenshot](https://i.gyazo.com/5fd70aef920fb2e3b56e01792cf6670b.png)
 
 ## SCANNER
 1. open cheat engine.
