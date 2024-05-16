@@ -1,4 +1,11 @@
- if (config.Includes.esp.chams.select == 0) 
+struct dynamic_array {
+uint64_t base;
+uint64_t mem_id;
+uint64_t sz;
+uint64_t cap;
+};
+
+if (config.Includes.esp.chams.select == 0) 
                         continue;
 
                     const auto player_model = entity->playerModel();
